@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width,
+    initial-scale=1">
+  <meta
+    name="color-scheme"
+    content="light">
+
+  <title>CARD CREATOR</title>
+
+  <link
+    href="https://fonts.bunny.net/css?family=andika:400"
+    rel="stylesheet" />
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/open-props"/>
+
+  <link 
+    rel="stylesheet"
+    href="https://unpkg.com/open-props/normalize.min.css"/>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/gutenberg-css@0.6"
+    media="print" />
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/gutenberg-css@0.6/dist/themes/oldstyle.min.css"
+    media="print" />
+
+  <link
+    rel="stylesheet"
+    href="styles.css" />
+
+</head>
+<body>
+  <main>
+    <h1>CARD CREATOR</h1>
+    <section>
+      <form id="form">
+        <ul>
+          <li id="maintext">
+            <label for="maintext_text">Main text</label>
+            <small>most important information(ex: wedding invitation, happy birthday)</small>
+            <input id="maintext_text" type="text" placeholder="Happy Birthday" />
+
+            <label for="maintext_size">font size</label>
+            <input id="maintext_size" type="text" placeholder="32" inputmode="numeric" />
+
+            <label for="maintext_font">font</label>
+            <select id="maintext_font">
+              <option label="rb1" value="rb1">
+              <option label="rb2" value="rb2">
+              <option label="rb3" value="rb3">
+              <option label="rb4" value="rb4">
+            </select>
+
+            <label for="maintext_color">Text color</label>
+            <input id="maintext_color" type="color" />
+          </li>
+
+          <li id="subtext">
+            <label for="subtext_text">Sub text</label>
+            <small>second most important information(ex: name of people or person involved)</small>
+            <input id="subtext_text" type="text" placeholder="Rohan weds Cariad" />
+
+            <label for="subtext_size">font size</label>
+            <input id="subtext_size" type="text" placeholder="32" inputmode="numeric" />
+
+            <label for="subtext_font">font</label>
+            <select id="subtext_font">
+              <option label="rb1" value="rb1">
+              <option label="rb2" value="rb2">
+              <option label="rb3" value="rb3">
+              <option label="rb4" value="rb4">
+            </select>
+
+            <label for="subtext_color">Text color</label>
+            <input id="subtext_color" type="color" />
+          </li>
+
+          <li id="venue">
+            <label for="venue_text">Venue</label>
+            <small>place of the event(add additional messages if its a wishing card)</small>
+            <input id="venue_text" type="text" placeholder="TMA Pai Convention Center" />
+
+            <label for="venue_size">font size</label>
+            <input id="venue_size" type="text" placeholder="32" inputmode="numeric" />
+
+            <label for="venue_font">font</label>
+            <select id="venue_font">
+              <option label="rb1" value="rb1">
+              <option label="rb2" value="rb2">
+              <option label="rb3" value="rb3">
+              <option label="rb4" value="rb4">
+            </select>
+
+            <label for="venue_color">Text color</label>
+            <input id="venue_color" type="color" />
+          </li>
+
+          <li id="date">
+            <label for="date_value">Date</label>
+            <small>date of the event - choose any format (add additional messages if no date has to be specified)</small>
+            <input id="date_value" type="text" placeholder="25th August 2022"/>
+
+            <label for="date_size">font size</label>
+            <input id="date_size" type="text" placeholder="32" inputmode="numeric" />
+
+            <label for="date_font">font</label>
+            <select id="date_font">
+              <option label="rb1" value="rb1">
+              <option label="rb2" value="rb2">
+              <option label="rb3" value="rb3">
+              <option label="rb4" value="rb4">
+            </select>
+
+            <label for="date_color">Text color</label>
+            <input id="date_color" type="color" />
+          </li>
+
+          <li id="time">
+            <label for="time_value">Time</label>
+            <small>time of the event - choose any format (add additional messages no time has to be specified)</small>
+            <input id="time_value" type="text" placeholder="11:00 AM to 2:00 PM"/>
+
+            <label for="time_size">font size</label>
+            <input id="time_size" type="text" placeholder="32" inputmode="numeric" />
+
+            <label for="time_font">font</label>
+            <select id="time_font">
+              <option label="rb1" value="rb1">
+              <option label="rb2" value="rb2">
+              <option label="rb3" value="rb3">
+              <option label="rb4" value="rb4">
+            </select>
+
+            <label for="time_color">Text color</label>
+            <input id="time_color" type="color" />
+          </li>
+
+          <li id="bottomline">
+            <label for="bottomline_text">Bottom line</label>
+            <small>Request presence and not to bring gifts</small>
+            <input id="bottomline_text" type="text" placeholder="presents in blessings only"/>
+
+            <label for="bottomline_size">font size</label>
+            <input id="bottomline_size" type="text" placeholder="32" inputmode="numeric" />
+
+            <label for="bottomline_font">font</label>
+            <select id="bottomline_font">
+              <option label="rb1" value="rb1">
+              <option label="rb2" value="rb2">
+              <option label="rb3" value="rb3">
+              <option label="rb4" value="rb4">
+            </select>
+
+            <label for="bottomline_color">Text color</label>
+            <input id="bottomline_color" type="color" />
+          </li>
+
+          <li id="background">
+            <label for="background_color">Background color</label>
+            <small>choose the background color for the card</small>
+            <input id="background_color" type="color" />
+          </li>
+        </ul>
+      </form>
+      <div id="svg_container">
+        <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="12cm" height="15cm">
+          <rect id="background_color_display" width="100%" height="100%" />
+          <text x="6cm" y="3.5cm" id="maintext_text_display"></text>
+          <text id="subtext_text_display"></text>
+          <text id="venue_text_display"></text>
+          <text id="date_value_display"></text>
+          <text id="time_value_display"></text>
+          <text id="bottomline_text_display"></text>
+        </svg>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
