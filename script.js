@@ -4,126 +4,77 @@ const venue = document.getElementById('venue_text');
 const date = document.getElementById('date_value');
 const time = document.getElementById('time_value');
 const bottomline = document.getElementById('bottomline_text');
-const background = document.getElementById('background_color');
+const background = document.getElementById('card_container');
 
 const storage = (inTarget, inValue) => {
   if(!inValue || !inTarget) {
     return;
   }
-  const storedValue = localStorage.getItem(inTarget);
-  if(storedValue && storedValue === inValue) {
-    return storedValue;
+  try {
+    const storedValue = localStorage.getItem(inTarget);
+    if(storedValue && storedValue === inValue) {
+      return storedValue;
+    }
+    localStorage.setItem(inTarget, inValue);
+    return inValue;
   }
-  localStorage.setItem(inTarget, inValue);
-  return inValue;
+  catch {
+    return;
+  }
 }
+
+function display(inValue) {
+  const value = inValue
+    ?? (storage(this.target, inValue)
+      ? storage(this.target, inValue)
+      : `${this.target}`);
+  const elem = document.querySelector(`#${this.target}`);
+  if(!elem) {
+    return;
+  }
+  elem.textContent = value;
+};
 
 const targetFunctions = {
   'svg': {
     target: 'svg',
-    display(value, options) {
-      const elem = document.querySelector(`#${this.target}`);
-      elem.setAttribute('width', options.width);
-      elem.setAttribute('height', options.height);
-    }
+    display: display
   },
   'maintext_text_display': {
     target: 'maintext_text_display',
-    display(inValue) {
-      const value = inValue
-          ?? (storage(this.target, inValue)
-          ? storage(this.target, inValue)
-          : "maintext_text_display_placeholder");
-      const elem = document.querySelector(`#${this.target}`);
-      if(!elem) {
-        return;
-      }
-      elem.textContent = value;
-    }
+    display: display
   },
   'subtext_text_display': {
     target: 'subtext_text_display',
-    display(inValue) {
-      const value = inValue
-          ?? (storage(this.target, inValue)
-          ? storage(this.target, inValue)
-          : "subtext_text_display_placeholder");
-      const elem = document.querySelector(`#${this.target}`);
-      if(!elem) {
-        return;
-      }
-      elem.textContent = value;
-    }
+    display: display
   },
   'venue_text_display': {
     target: 'venue_text_display',
-    display(inValue) {
-      const value = inValue
-          ?? (storage(this.target, inValue)
-          ? storage(this.target, inValue)
-          : "venue_text_display_placeholder");
-      const elem = document.querySelector(`#${this.target}`);
-      if(!elem) {
-        return;
-      }
-      elem.textContent = value;
-    }
+    display: display
   },
   'date_value_display': {
     target: 'date_value_display',
-    display(inValue) {
-      const value = inValue
-        ?? (storage(this.target, inValue)
-          ? storage(this.target, inValue)
-          : "date_value_display_placeholder");
-      const elem = document.querySelector(`#${this.target}`);
-      if(!elem) {
-        return;
-      }
-      elem.textContent = value;
-    }
+    display: display
   },
   'time_value_display': {
     target: 'time_value_display',
-    display(inValue) {
-      const value = inValue
-        ?? (storage(this.target, inValue)
-          ? storage(this.target, inValue)
-          : "time_placeholder");
-      const elem = document.querySelector(`#${this.target}`);
-      if(!elem) {
-        return;
-      }
-      elem.textContent = value;
-    }
+    display: display
   },
   'bottomline_text_display': {
     target: 'bottomline_text_display',
-    display(inValue) {
-      const value = inValue
-        ?? (storage(this.target, inValue)
-          ? storage(this.target, inValue)
-          : "bottomline_text_placeholder");
-      const elem = document.querySelector(`#${this.target}`);
-      if(!elem) {
-        return;
-      }
-      elem.textContent = value;
-    }
+    display: display
   },
-  'background_color_display': {
-    target: 'background_color_display',
+  'card_display': {
+    target: 'card_display',
     display(inValue = 'black') {
       const elem = document.querySelector(`#${this.target}`);
       if(!elem) {
         return;
       }
-      elem.setAttribute('fill', inValue);
+      elem.style.backgroundColor = inValue;
     }
   }
 }
-
-console.log(targetFunctions);
 
 const inputs = [
   'maintext_text',
@@ -132,15 +83,13 @@ const inputs = [
   'date_value',
   'time_value',
   'bottomline_text',
-  'background_color'
+  'card'
 ];
 
 const inputDisplayMap = new Map();
 for(let input of inputs) {
   inputDisplayMap.set(input, targetFunctions[`${input}_display`]);
 }
-
-console.log(inputDisplayMap);
 
 const render = (inTarget, inValue) => {
   const targetDisplay = inputDisplayMap.get(inTarget);

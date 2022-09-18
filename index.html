@@ -166,22 +166,21 @@
           </li>
 
           <li id="background">
-            <label for="background_color">Background color</label>
+            <label for="card">Background color</label>
             <small>choose the background color for the card</small>
-            <input id="background_color" type="color" />
+            <input id="card" type="color" />
           </li>
         </ul>
       </form>
-      <div id="svg_container">
-        <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="12cm" height="15cm">
-          <rect id="background_color_display" width="100%" height="100%" />
-          <text x="6cm" y="3.5cm" id="maintext_text_display"></text>
-          <text id="subtext_text_display"></text>
-          <text id="venue_text_display"></text>
-          <text id="date_value_display"></text>
-          <text id="time_value_display"></text>
-          <text id="bottomline_text_display"></text>
-        </svg>
+      <div id="card_container">
+        <div id="card_display" width="12cm" height="15cm">
+          <h2 x="6cm" y="3.5cm" id="maintext_text_display"></h2>
+          <h3 id="subtext_text_display"></h3>
+          <h3 id="venue_text_display"></h3>
+          <h4 id="date_value_display"></h4>
+          <h5 id="time_value_display"></h5>
+          <h6 id="bottomline_text_display"></h6>
+        </div>
       </div>
     </section>
   </main>

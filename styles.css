@@ -1,6 +1,8 @@
 :root {
   --cc-ui-font: andika;
   --cc-child-column-width: 100%;
+  --cc-width: 12cm;
+  --cc-height: 15cm;
 }
 
 body {
@@ -74,9 +76,17 @@ form > ul > li > input {
   width: 100%;
 }
 
-#svg_container {
+#card_container {
   display: grid;
   place-items: center;
+}
+
+#card_display {
+  display: grid;
+  place-items: center;
+  width: var(--cc-width);
+  height: var(--cc-height);
+  outline: 1px solid white;
 }
 
 @media screen and (min-width: 960px) {
